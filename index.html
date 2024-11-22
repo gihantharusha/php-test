@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadData();">
+    <a href="http://localhost/realtimeUpdates/addNewUser.php">Add</a>
+    <script>
+        function loadData(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                document.getElementById("list").innerHTML = this.responseText
+            }
+
+            xhttp.open('GET', 'backend.php');
+            xhttp.send()
+        }
+
+        setInterval(function(){
+            loadData();
+        }, 500);
+    </script>
+
+    <div id="list">
+<ul>
+            <li>
+            <h4>sunil</h4>
+            <p>sunil@gmail.com</p>
+            <a href="http://localhost/realtimeUpdates/deleteUser.php?id=70">Delete</a>
+             
+        </li>
+            <li>
+            <h4>tharusha</h4>
+            <p>tharusha@gmail.com</p>
+            <a href="http://localhost/realtimeUpdates/deleteUser.php?id=74">Delete</a>
+             
+        </li>
+    </ul></div>
+
+</body></html>
